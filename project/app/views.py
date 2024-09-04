@@ -9,5 +9,9 @@ def home(request):
         form=InfoItem(request.POST,request.FILES)
         if form.is_valid():
             form.save()
-    data1= resume.objects.all()
-    return render(request,'home.html',{'form1':form1,'data1':data1})
+    return render(request,'home.html',{'form1':form1})
+
+def showdata(request):
+    data=resume.objects.all()
+    return render (request,'dashboard.html',{'data':data.values()})
+
